@@ -26,3 +26,5 @@
 
 4. **Testing**:
    - Test the containerized app in staging or a test environment to ensure it behaves as expected before production deployment.
+  
+So you really don't like the guinea pig huh?
