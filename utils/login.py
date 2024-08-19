@@ -30,7 +30,7 @@ def initialize_authenticator(config):
 
 def invoke_login_widget(page_title):
     # Load the configuration and initialize the authenticator
-    config = load_config('./utils/config.yaml')
+    config = load_config('../config.yaml')
     authenticator = initialize_authenticator(config)
 
     # Display the login form if the user is not authenticated

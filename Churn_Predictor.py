@@ -9,8 +9,6 @@ from streamlit_authenticator.utilities import (CredentialsError,
                                                RegisterError,
                                                ResetError,
                                                UpdateError)
-import requests
-from streamlit_lottie import st_lottie
 from utils.lottie import display_lottie_on_page
 
 st.set_page_config(
@@ -26,7 +24,7 @@ st.image("assets/team_logo.svg", width=200)
 
 # Load configuration from YAML file
 try:
-    with open('./utils/config.yaml', 'r', encoding='utf-8') as file:
+    with open('../config.yaml', 'r', encoding='utf-8') as file:
         config = yaml.load(file, Loader=SafeLoader)
 except FileNotFoundError:
     st.error("Configuration file not found.")
@@ -35,8 +33,8 @@ except yaml.YAMLError as e:
     st.error(f"Error loading YAML file: {e}")
     st.stop()
 
-# Hashing all plain text passwords once
-Hasher.hash_passwords(config['credentials'])
+# # Hashing all plain text passwords once
+# Hasher.hash_passwords(config['credentials'])
 
 # Creating the authenticator object and storing it in session state
 if 'authenticator' not in st.session_state:
@@ -204,11 +202,8 @@ elif action == "Update Details" and st.session_state.get("authentication_status"
         st.error(e)
 
 # Saving config file
-with open('./utils/config.yaml', 'w', encoding='utf-8') as file:
+with open('../config.yaml', 'w', encoding='utf-8') as file:
     yaml.dump(config, file, default_flow_style=False)
-
-# --- SHARED ON ALL PAGES ---
-# authenticator.logout("Logout", "sidebar")
 
 st.sidebar.text("Powered by Team Switzerland 💡🌍") 
 
