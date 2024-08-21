@@ -26,7 +26,6 @@
     - [Our Mission](#our-mission)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Descriptive Section Titles:](#descriptive-section-titles)
   - [Development Workflow:](#development-workflow)
 
 ## Introduction
@@ -74,26 +73,6 @@ For a smooth setup, ensure all dependencies are correctly installed.
 Once installed, the app can be accessed via your web browser at `http://localhost:8501`. The homepage provides an overview of the app and the the team of developers behind its production. A history page is available to provide an overview of your current data and churn predictions.
 
 ### Screenshots
-(Optional: Add screenshots of the app here to visually guide users.)
-
-For your Churn Predictor app's README, here are some recommended screenshots to include:
-
-1. **Home Page**: Show the main interface that users see when they first access the app. This can include the login page or the dashboard if users are already logged in.
-
-2. **Dashboard Overview**: Capture a screenshot of the analytics dashboard showing key metrics, graphs, and data visualizations related to customer churn.
-
-3. **Prediction Results**: Show the page where the churn predictions are displayed, highlighting how the app presents the predicted churn risk for customers.
-
-4. **Data Management**: Include a screenshot of the data overview section, demonstrating how users can manage and view their datasets.
-
-5. **History Page**: Capture the history page where users can see past predictions and historical data trends.
-
-6. **Model Training & Evaluation**: If the app includes a feature for model training and evaluation, include a screenshot of this process, showing the model's performance metrics.
-
-7. **Team Section**: A screenshot showing the team section could also be useful, especially if the app emphasizes collaboration.
-
-These screenshots will provide a comprehensive visual guide to potential users, helping them understand the app's functionality and features.
-
 <table>
   <tr>
     <td>
@@ -124,6 +103,7 @@ These screenshots will provide a comprehensive visual guide to potential users, 
       <h4>History Page</h4>
       <img src="./assets/history.png" alt="History Page" width="400" height='275'/>
     </td>
+  </tr>
 </table>
 
 ## Machine Learning Integration
@@ -131,10 +111,15 @@ The Churn Predictor App uses powerful machine learning models like Random Forest
 
 ## App Structure
 The app is organized into several key sections:
-- **User Interaction**: Home page with a secure login form.
-- **Data Management**: Data overview and analytics dashboard.
-- **Insights and Forecasting**: History and prediction pages.
-- **App Features**: Detailed descriptions of app functionalities.
+
+1. **User Interaction**: 
+   - This section contains pages focused on user engagement and access, including the home page and login functionality. It serves as the gateway for users to interact with the platform. Details of the app features are included here as well.
+
+2. **Data Management**:
+   - This section houses tools for managing and analyzing data. It includes pages that provide an overview of the data and visualizations through an analytics dashboard. It’s where users can access and manipulate the core data.
+
+3. **Insights and Forecasting**:
+   - This section is dedicated to generating insights from historical data and predicting future trends. It includes pages focused on exploring historical data and making projections based on that data.
 
 ## Contact Information
 ### Need Help?
@@ -149,7 +134,7 @@ We are a dedicated team of data science professionals from the Azubi-Africa Data
 | <img src="./assets/devops.jpeg" alt="Nfayem Imoro" width="200" height="200"> | <img src="./assets/team_member_2.jpeg" alt="Gabriel Koku Kuma" width="200" height="200"> | <img src="./assets/jackops.jpg" alt="Jackline Wangari Maina" width="200" height="200"> |
 |:-----------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------:|
 | **Nfayem Imoro**                                                              | **Gabriel Koku Kuma**                                                                    | **Jackline Wangari Maina**                                                             |
-| Lead Analyst & SU Analyst                                                     | Data Engineer & Modeling Expert                                                          | Machine Learning Specialist                                                            |
+| Lead Analyst & Project Manager                                                     | Data Engineer & Modeling Expert                                                          | Machine Learning Specialist                                                            |
 
 | <img src="./assets/team_member_4.jpeg" alt="Obed Korda" width="200" height="200"> | <img src="./assets/team_member_5.jpeg" alt="Godfred Frank Aning" width="200" height="200"> | <img src="./assets/team_member_6.jpeg" alt="Victor Obondo" width="200" height="200"> |
 |:---------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
@@ -166,16 +151,6 @@ We welcome contributions from the community! Please read our [Contributing Guide
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Nfayem/Churn_Predictor/blob/DevOps/LICENSE) file for details.
-
-## Descriptive Section Titles:
-1. **User Interaction**: 
-   - This section contains pages focused on user engagement and access, including the home page and login functionality. It serves as the gateway for users to interact with the platform.
-
-2. **Data Management**:
-   - This section houses tools for managing and analyzing data. It includes pages that provide an overview of the data and visualizations through an analytics dashboard. It’s where users can access and manipulate the core data.
-
-3. **Insights and Forecasting**:
-   - This section is dedicated to generating insights from historical data and predicting future trends. It includes pages focused on exploring historical data and making projections based on that data.
 
 ## Development Workflow:
 
