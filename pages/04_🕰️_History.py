@@ -5,6 +5,8 @@ from utils.login import invoke_login_widget
 from utils.lottie import display_lottie_on_page
 import pandas as pd
 import plotly.express as px
+import joblib
+import os
 
 # Invoke the login form
 invoke_login_widget('Historical Insights')
@@ -55,59 +57,73 @@ if st.session_state.get("authentication_status"):
     st.write("This section provides actionable insights derived from customer data analysis to help identify key trends, behaviors, and opportunities for growth.")
 
     # Load Historical Data (Assuming a CSV without dates)
-    @st.cache_data(persist=True)
-    def load_historical_data():
-        df = pd.read_excel('./data/LP2_train_final.xlsx')  # Replace with your actual data path
-        return df
+    
+    data = pd.read_csv('./data/history.csv') # Replace with your
 
-    df = load_historical_data()
+    # Drop the Avg column and Mothlycharges
+    data.drop('AvgMonthlyCharges', axis=1, inplace=True)
+    data.drop('MonthlyChargesToTotalChargesRatio', axis=1, inplace=True)
 
-    # Inspect the dataset (comment out after use)
-    st.write("Columns in the dataset:", df.columns.tolist())  # Display all column names
+    st.dataframe(data) # Replace with your actual data path
+    # @st.cache_data(persist=True)
+    # def load_historical_data():
+    #     if os.path.exists('./data/history.csv'):
+    #         df = pd.read_csv('./data/history.csv')  # Replace with your actual data path
+    #     else:
+    #         st.error("No historical data found.")
+            
+    #     return df
+    # df = load_historical_data()
+
+    # st.dataframe(df)
+
+    
+    # # Inspect the dataset (comment out after use)
+    # st.write("Columns in the dataset:", df.columns.tolist())  # Display all column names
 
     # Key Metrics Section
-    st.subheader("Key Metrics Overview")
-    with st.container():
-        left_col, middle_col, right_col = st.columns(3)
+    # st.subheader("Key Metrics Overview")
+    # with st.container():
+    #     left_col, middle_col, right_col = st.columns(3)
 
-        # Use correct column names based on the dataset
-        if 'CustomerID' in df.columns:
-            with left_col:
-                st.metric("Total Customers", df['CustomerID'].nunique())  # Replace with actual customer count column
-        else:
-            st.warning("Column 'CustomerID' not found in the dataset.")
+    #     # Use correct column names based on the dataset
+    #     if 'CustomerID' in data.columns:
+    #         with left_col:
+    #             st.metric("Total Customers", data['CustomerID'].nunique())  # Replace with actual customer count column
+    #     else:
+    #         st.warning("Column 'CustomerID' not found in the dataset.")
 
-        if 'Revenue' in df.columns:
-            with middle_col:
-                st.metric("Average Revenue per User", f"${df['Revenue'].mean():.2f}")  # Replace with actual revenue column
-        else:
-            st.warning("Column 'Revenue' not found in the dataset.")
+    #     if 'Revenue' in data.columns:
+    #         with middle_col:
+    #             st.metric("Average Revenue per User", f"${data['Revenue'].mean():.2f}")  # Replace with actual revenue column
+    #     else:
+    #         st.warning("Column 'Revenue' not found in the dataset.")
 
-        if 'SatisfactionRate' in df.columns:
-            with right_col:
-                st.metric("Customer Satisfaction Rate", f"{df['SatisfactionRate'].mean():.2f}%")  # Replace with actual satisfaction column
-        else:
-            st.warning("Column 'SatisfactionRate' not found in the dataset.")
+    #     if 'SatisfactionRate' in data.columns:
+    #         with right_col:
+    #             st.metric("Customer Satisfaction Rate", f"{data['SatisfactionRate'].mean():.2f}%")  # Replace with actual satisfaction column
+    #     else:
+    #         st.warning("Column 'SatisfactionRate' not found in the dataset.")
 
-    st.write("---")
+    # st.write("---")
 
-    # Historical Analysis Section
-    st.subheader("Historical Trends Analysis")
-    st.write("This section visualizes key trends over time, highlighting customer behavior and revenue generation.")
+    # # Historical Analysis Section
+    # st.subheader("Historical Trends Analysis")
+    # st.write("This section visualizes key trends over time, highlighting customer behavior and revenue generation.")
 
-    # Sample Visualization: Revenue over time (even without dates, can use index or other columns)
-    if 'Revenue' in df.columns:
-        fig1 = px.line(df, x=df.index, y='Revenue', title='Revenue Over Time', labels={'x': 'Index', 'Revenue': 'Revenue'})
-        st.plotly_chart(fig1, use_container_width=True)
+    # # Sample Visualization: Revenue over time (even without dates, can use index or other columns)
+    # if 'Revenue' in df.columns:
+    #     fig1 = px.line(df, x=df.index, y='Revenue', title='Revenue Over Time', labels={'x': 'Index', 'Revenue': 'Revenue'})
+    #     st.plotly_chart(fig1, use_container_width=True)
 
-    # Additional Visualizations
-    if 'CustomerSegment' in df.columns:
-        customer_segment_counts = df['CustomerSegment'].value_counts().reset_index()
-        customer_segment_counts.columns = ['Customer Segment', 'Count']
-        fig2 = px.bar(customer_segment_counts, x='Customer Segment', y='Count', title='Customer Segmentation Distribution')
-        st.plotly_chart(fig2, use_container_width=True)
+    # # Additional Visualizations
+    # if 'CustomerSegment' in df.columns:
+    #     customer_segment_counts = df['CustomerSegment'].value_counts().reset_index()
+    #     customer_segment_counts.columns = ['Customer Segment', 'Count']
+    #     fig2 = px.bar(customer_segment_counts, x='Customer Segment', y='Count', title='Customer Segmentation Distribution')
+    #     st.plotly_chart(fig2, use_container_width=True)
 
-    st.write("---")
+    # st.write("---")
 
 
 

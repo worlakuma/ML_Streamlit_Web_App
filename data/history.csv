@@ -1,0 +1,2 @@
+gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,AvgMonthlyCharges,MonthlyChargesToTotalChargesRatio,PredictionTime,ModelUsed,Probability
+Male,No,Yes,No,2.0,Yes,No,No,No,No,No,Yes,No,No,Month-to-month,No,,96.0,0.0,0.0,0,2024-08-25,XGB,98.88
