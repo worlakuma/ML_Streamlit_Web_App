@@ -1,4 +1,7 @@
-import requests
+import time
+import yaml
+from yaml.loader import SafeLoader
+import streamlit_authenticator as stauth
 from streamlit_lottie import st_lottie
 import streamlit as st
 import streamlit.components.v1 as components
@@ -7,6 +10,7 @@ import base64
 from PIL import Image
 from utils.login import invoke_login_widget
 from utils.lottie import display_lottie_on_page
+from streamlit_authenticator.utilities import RegisterError
 
 # Invoke the login form
 invoke_login_widget('Home')
@@ -143,21 +147,26 @@ if st.session_state.get("authentication_status"):
 
             st.subheader("User Interaction")
             st.markdown("""
-            - **Home Page:** Welcome page providing an overview and access to other sections.
-            - **Login form:** Secure login functionality for user access.
+            - **Home Page:** Provides a comprehensive overview of the app’s functionalities and introduces the team behind its development.
+            - **Login and Sign Up Forms:** Secure access management with options for both logging in and creating a new user account.
+            - **Account Page:** Manage your personal account settings, including updating details, resetting passwords, and handling user registrations.
             """)
 
-            st.subheader("Data Management")
+
+            st.subheader("Data Management and Analysis")
             st.markdown("""
-            - **Data Overview:** Tools for managing and visualizing data.
+            - **Data Overview:** Tools to upload and explore datasets with interactive filters.
             - **Analytics Dashboard:** Interactive visualizations and data insights.
             """)
 
+
             st.subheader("Insights and Forecasting")
             st.markdown("""
-            - **Historical Data Analysis:** Exploration of past data trends.
-            - **Predictive Modeling:** Forecasting future trends based on historical data.
+            - **Historical Insights:** Displays results from previous predictions, showing trends and outcomes based on historical data. This section helps users understand past prediction results and their implications.
+            - **Future Projections:** Predicts future customer churn based on historical data insights. This page leverages past trends to forecast potential churn rates and guide decision-making for customer retention strategies.
             """)
+
+
         
         with right_column:  
             display_lottie_on_page("Home")
@@ -203,13 +212,13 @@ if st.session_state.get("authentication_status"):
     pip install streamlit pandas numpy scikit-learn
 
     # Run the app
-    streamlit run Churn_Predictor.py
+    streamlit run 00_🚪_Gateway.py
     """, language='bash')
 
     # Machine Learning Integration
     st.subheader("Machine Learning Integration")
     st.write("""
-    - **Model Selection:** Choose the best model for your data, such as ARIMA, SARIMA, or Prophet.
+    - **Model Selection:** Choose the best model for your data, such as random forest and xgboost classifiers.
     - **Seamless Integration:** Integrate machine learning models with your Streamlit app effortlessly.
     - **Probability Estimates:** Get probability estimates for predictions and understand model outputs.
     """)
@@ -236,7 +245,7 @@ if st.session_state.get("authentication_status"):
 
     # Define team member details with provided names and roles
     team_members = [
-        {"image": "./assets/devops.jpeg", "name": "Nfayem Imoro", "title": "Data Analyst", "role": "Lead Analyst & SU Analyst"},
+        {"image": "./assets/devops.jpeg", "name": "Nfayem Imoro", "title": "Data Analyst", "role": "Lead Analyst & Project Manager"},
         {"image": "./assets/team_member_2.jpeg", "name": "Gabriel Koku Kuma", "title": "Data Analyst", "role": "Data Engineer & Modeling Expert"},
         {"image": "./assets/jackops.jpg", "name": "Jackline Wangari Maina", "title": "Data Analyst", "role": "Machine Learning Specialist"},
         {"image": "./assets/team_member_4.jpeg", "name": "Obed Korda", "title": "Data Analyst", "role": "Customer Churn Analyst"},
@@ -304,3 +313,39 @@ if st.session_state.get("authentication_status"):
     # Contact Button
     if st.button("Inquiries"):
         show_contact_form()
+
+# Loading config file
+with open('./config.yaml', 'r', encoding='utf-8') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+# Creating the authenticator object
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['pre-authorized']
+)
+
+# Handle user registration
+try:
+    (email_of_registered_user,
+     username_of_registered_user,
+     name_of_registered_user) = authenticator.register_user("sidebar", pre_authorization=False, fields={'Form name':'Sign Up Here', 'Register':'Sign Up'})
+    
+    if email_of_registered_user:
+        # Create a placeholder for the success message
+        success_placeholder = st.empty()
+        success_placeholder.success('The new user has been successfully registered.')
+        
+        # Clear the success message after a delay
+        time.sleep(3)  # Wait for 3 seconds
+        success_placeholder.empty()
+
+except RegisterError as e:
+    st.error(f"Error registering user: {e}")
+
+
+# Save the updated configuration file
+with open('./config.yaml', 'w', encoding='utf-8') as file:
+    yaml.dump(config, file, default_flow_style=False)
