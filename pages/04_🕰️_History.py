@@ -60,9 +60,9 @@ if st.session_state.get("authentication_status"):
     
     data = pd.read_csv('./data/history.csv') # Replace with your
 
-    # Drop the Avg column and Mothlycharges
-    data.drop('AvgMonthlyCharges', axis=1, inplace=True)
-    data.drop('MonthlyChargesToTotalChargesRatio', axis=1, inplace=True)
+    # # Drop the Avg column and Mothlycharges
+    # data.drop('AvgMonthlyCharges', axis=1, inplace=True)
+    # data.drop('MonthlyChargesToTotalChargesRatio', axis=1, inplace=True)
 
     st.dataframe(data) # Replace with your actual data path
     # @st.cache_data(persist=True)
