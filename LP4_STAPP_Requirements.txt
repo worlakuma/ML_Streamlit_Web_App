@@ -24,3 +24,7 @@ yamllint
 pylint
 passlib
 bcrypt
+xlsxwriter
+gitpython
+pillow
+PyYAML

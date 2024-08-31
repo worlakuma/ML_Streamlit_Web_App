@@ -1,8 +1,2 @@
-gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,AvgMonthlyCharges,MonthlyChargesToTotalChargesRatio,PredictionTime,ModelUsed,Probability
-Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,No,Mailed check,0.0,0.0,0.0,1,2024-08-26,Random Forest,74.0
-Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,No,Yes,No,Yes,Month-to-month,No,Mailed check,0.0,0.0,0.0,1,2024-08-26,Random Forest,74.0
-Male,No,Yes,No,50.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,No,,50.0,0.0,0.0,1,2024-08-26,Random Forest,74.0
-Male,No,Yes,No,25.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,No,,1800.0,0.0,0.0,1,2024-08-26,Random Forest,74.0
-Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,No,Mailed check,0.0,0.0,0.0,1,2024-08-26,XGB,98.88
-Female,No,Yes,No,70.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Two years,,,1500.0,0.0,0.0,0,2024-08-26,XGB,98.88
-Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,No,Mailed check,0.0,0.0,0.0,1,2024-08-26,XGB,98.88
+gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,PredictionTime,ModelUsed,Prediction,Probability
+Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Mailed check,0.0,0.0,2024-08-31,Random Forest,No,61.85
