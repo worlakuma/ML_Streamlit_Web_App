@@ -2,6 +2,8 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 
+# Cache the Lottie animation data with persistence across sessions
+@st.cache_data(show_spinner=False, persist=True)
 def load_lottie_animation(url):
     try:
         response = requests.get(url)

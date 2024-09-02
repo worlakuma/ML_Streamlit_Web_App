@@ -19,6 +19,12 @@ streamlit-lottie
 streamlit-option-menu
 streamlit-authenticator
 openpyxl
+pypandoc
+yamllint
+pylint
+passlib
+bcrypt
+xlsxwriter
 gitpython
 pillow
 PyYAML
