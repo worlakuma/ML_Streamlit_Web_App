@@ -60,10 +60,6 @@ if st.session_state.get("authentication_status"):
     
     data = pd.read_csv('./data/history.csv') # Replace with your
 
-    # # Drop the Avg column and Mothlycharges
-    # data.drop('AvgMonthlyCharges', axis=1, inplace=True)
-    # data.drop('MonthlyChargesToTotalChargesRatio', axis=1, inplace=True)
-
     st.dataframe(data) # Replace with your actual data path
     # @st.cache_data(persist=True)
     # def load_historical_data():
@@ -107,27 +103,27 @@ if st.session_state.get("authentication_status"):
 
     # st.write("---")
 
-    # # Historical Analysis Section
-    # st.subheader("Historical Trends Analysis")
-    # st.write("This section visualizes key trends over time, highlighting customer behavior and revenue generation.")
+    # Historical Analysis Section
+    st.subheader("Historical Trends Analysis")
+    st.write("This section visualizes key trends over time, highlighting customer behavior and revenue generation.")
 
-    # # Sample Visualization: Revenue over time (even without dates, can use index or other columns)
-    # if 'Revenue' in df.columns:
-    #     fig1 = px.line(df, x=df.index, y='Revenue', title='Revenue Over Time', labels={'x': 'Index', 'Revenue': 'Revenue'})
-    #     st.plotly_chart(fig1, use_container_width=True)
+    # Sample Visualization: Revenue over time (even without dates, can use index or other columns)
+    if 'Revenue' in data.columns:
+        fig1 = px.line(data, x=data.index, y='Revenue', title='Revenue Over Time', labels={'x': 'Index', 'Revenue': 'Revenue'})
+        st.plotly_chart(fig1, use_container_width=True)
 
-    # # Additional Visualizations
-    # if 'CustomerSegment' in df.columns:
-    #     customer_segment_counts = df['CustomerSegment'].value_counts().reset_index()
-    #     customer_segment_counts.columns = ['Customer Segment', 'Count']
-    #     fig2 = px.bar(customer_segment_counts, x='Customer Segment', y='Count', title='Customer Segmentation Distribution')
-    #     st.plotly_chart(fig2, use_container_width=True)
+    # Additional Visualizations
+    if 'CustomerSegment' in data.columns:
+        customer_segment_counts = data['CustomerSegment'].value_counts().reset_index()
+        customer_segment_counts.columns = ['Customer Segment', 'Count']
+        fig2 = px.bar(customer_segment_counts, x='Customer Segment', y='Count', title='Customer Segmentation Distribution')
+        st.plotly_chart(fig2, use_container_width=True)
 
-    # st.write("---")
+    st.write("---")
 
 
 
     # Replace with an existing Lottie animation URL
-    # lottie_history = "https://assets7.lottiefiles.com/packages/lf20_jcikwtux.json" 
+    lottie_history = "https://assets7.lottiefiles.com/packages/lf20_jcikwtux.json" 
 
-    # st_lottie(lottie_history, height=300, key="history")
+    st_lottie(lottie_history, height=300, key="history")

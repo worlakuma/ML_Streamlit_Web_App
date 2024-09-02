@@ -51,7 +51,7 @@ if st.session_state.get("authentication_status"):
             pipeline = GB
         else:
             pipeline = XB
-        encoder = joblib.load('./models/encoder - Copy.joblib')
+        encoder = joblib.load('./models/encoder.Copy.joblib')
         return pipeline, encoder  
 
     # Initialize session state for predictions and probabilities
