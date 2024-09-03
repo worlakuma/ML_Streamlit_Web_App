@@ -80,6 +80,12 @@ if st.session_state.get("authentication_status"):
     authenticator.logout("Logout", "sidebar")
     st.sidebar.title(f'Welcome *{st.session_state["name"]}*')
 
+    signup_page = st.Page(
+        page="pages/00_✍🏾_Sign_Up.py",
+        title="Sign Up",
+        icon="✍🏾",
+    )    
+
     home_page = st.Page(
         page="pages/01_🏡_Home.py",
         title="Home",
