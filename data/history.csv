@@ -2,3 +2,4 @@ gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,Intern
 Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Mailed check,0.0,0.0,2024-08-31,Random Forest,No,61.85
 Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Mailed check,0.0,0.0,2024-09-02,Random Forest,No,61.85
 Male,No,Yes,No,0.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Mailed check,0.0,0.0,2024-09-02,Random Forest,No,61.85
+Female,No,No,No,2.0,Yes,No,No,No,No,No,No,No,No,Month-to-month,No,Mailed check,65.0,65.0,2024-09-03,GBoost,No,95.56
