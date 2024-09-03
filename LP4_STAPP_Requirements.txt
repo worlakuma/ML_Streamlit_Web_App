@@ -6,7 +6,7 @@ seaborn
 plotly
 pandas-profiling
 sweetviz
-scikit-learn: 1.5.1
+scikit-learn==1.5.1
 category-encoders
 catboost
 lightgbm
