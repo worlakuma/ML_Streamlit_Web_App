@@ -36,4 +36,4 @@ RUN pip3 install --upgrade pip && pip3 install -r LP4_STAPP_Requirements.txt
 COPY ./ ./
 
 # Specify the command to run the application
-CMD [ "streamlit", "run", "Churn_Prediction.py" ]
+CMD [ "streamlit", "run", "00_🚪_Gateway.py" ]
