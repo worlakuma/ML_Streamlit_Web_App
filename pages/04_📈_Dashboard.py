@@ -78,7 +78,7 @@ if st.session_state.get("authentication_status"):
             if most_recent_table:
                 table_name = most_recent_table[0]
                 df = pd.read_sql_query(f"SELECT * FROM {table_name}", conn)
-                global data_source
+                global data_sourc
                 data_source = 'uploaded'  # Update flag to indicate data is from upload
             else:
                 st.error("No tables found in the database.")
