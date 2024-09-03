@@ -7,7 +7,7 @@ plotly
 pandas-profiling
 sweetviz
 scikit-learn==1.5.1
-category-encoders
+category-encoders 
 catboost
 lightgbm
 xgboost
